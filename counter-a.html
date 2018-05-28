@@ -17,7 +17,8 @@
         constructor(props){
            super(props);
            this.state = {
-             number: 1
+             number: 1,
+             remaining: 5
            }
          }
  
@@ -25,8 +26,10 @@
           return (
             <div>
               <img src={this.props.image} alt="Bloc Logo"/>
+              <h1>Welcome to your homepage, {this.props.name}</h1>
               <h2>Current program: {this.props.label}</h2>
               <h3>Current week: {this.state.number}</h3>
+              <h3> Weeks Left: {this.state.remaining}</h3>
               <p>Current Date: {this.props.date.toLocaleDateString()}</p>
             </div>
           );
@@ -34,6 +37,7 @@
       }
 
       const info = {
+          name: "Meliss",
         date: new Date(),
         image: 'https://avatars0.githubusercontent.com/u/1441485?v=4&s=280',
       }
@@ -44,8 +48,9 @@
 
       ReactDOM.render(
         <Counter
+          name={info.name}
           date={info.date}
-          image={info.image}/>,document.getElementById('app')
+         image={info.image}/>,document.getElementById('app')
       );
 
     </script>
